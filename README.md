@@ -1,10 +1,13 @@
+NOTE: This is a fork to integrate css into the existing parser, which was not written by me. This repo is a Work in Progress, there is no css-related functionality in it yet.
+
 # tl
 tl is a fast HTML parser written in pure Rust. <br />
 
-- [Usage](#usage)
-- [Examples](#examples)
-- [SIMD-accelerated parsing](#simd-accelerated-parsing)
-- [Benchmarks](#benchmarks)
+- [tl](#tl)
+  - [Usage](#usage)
+  - [Examples](#examples)
+  - [SIMD-accelerated parsing](#simd-accelerated-parsing)
+  - [Benchmarks](#benchmarks)
 
 This crate (currently) does *not* strictly follow the full specification of the HTML standard, however this usually is not a problem for most use cases. This crate generally attempts to support most "sane" HTML. Not being limited by a specification allows for more optimization opportunities.
 If you need a parser that can (very quickly) parse the typical HTML document and you need a simple API to work with the DOM, give this crate a try.
