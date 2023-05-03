@@ -11,7 +11,7 @@ cargo-fuzz = true
 [dependencies]
 libfuzzer-sys = "0.4"
 
-[dependencies.tl]
+[dependencies.tl_yargl]
 path = ".."
 features = ["__INTERNALS_DO_NOT_USE"] # we use it for fuzzing internals
 

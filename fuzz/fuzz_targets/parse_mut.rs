@@ -1,9 +1,9 @@
 #![no_main]
 use libfuzzer_sys::fuzz_target;
-extern crate tl;
+extern crate tl_yargl;
 
 fuzz_target!(|data: &str| {
-    let mut dom = tl::parse(data, tl::ParserOptions::default()).unwrap();
+    let mut dom = tl_yargl::parse(data, tl_yargl::ParserOptions::default()).unwrap();
 
     // ... some random DOM mutations ...
     for node in dom.nodes_mut() {

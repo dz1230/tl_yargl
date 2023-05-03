@@ -1,9 +1,9 @@
 NOTE: This is a fork to integrate css into the existing parser, which was not written by me. This repo is a Work in Progress, there is no css-related functionality in it yet.
 
-# tl
-tl is a fast HTML parser written in pure Rust. <br />
+# tl_yargl
+tl_yargl is a fast HTML parser written in pure Rust. <br />
 
-- [tl](#tl)
+- [tl\_yargl](#tl_yargl)
   - [Usage](#usage)
   - [Examples](#examples)
   - [SIMD-accelerated parsing](#simd-accelerated-parsing)
@@ -15,19 +15,19 @@ If you need a parser that can (very quickly) parse the typical HTML document and
 If you need a parser that closely follows the standard, consider using [html5ever](https://github.com/servo/html5ever), [lol-html](https://github.com/cloudflare/lol-html), or [html5gum](https://github.com/untitaker/html5gum).
 
 ## Usage
-Add `tl` to your dependencies.
+Add `tl_yargl` to your dependencies.
 ```toml
 [dependencies]
-tl = "0.7.7"
+tl_yargl = "0.7.7"
 # or, with explicit SIMD support
 # (requires a nightly compiler!)
-tl = { version = "0.7.7", features = ["simd"] }
+tl_yargl = { version = "0.7.7", features = ["simd"] }
 ```
 
-The main function is `tl::parse()`. It accepts an HTML source code string and parses it. It is important to note that tl currently silently ignores tags that are invalid, sort of like browsers do. Sometimes, this means that large chunks of the HTML document do not appear in the resulting tree.
+The main function is `tl_yargl::parse()`. It accepts an HTML source code string and parses it. It is important to note that tl currently silently ignores tags that are invalid, sort of like browsers do. Sometimes, this means that large chunks of the HTML document do not appear in the resulting tree.
 
 ```rust
-let dom = tl::parse(r#"<p id="text">Hello</p>"#, tl::ParserOptions::default()).unwrap();
+let dom = tl_yargl::parse(r#"<p id="text">Hello</p>"#, tl_yargl::ParserOptions::default()).unwrap();
 let parser = dom.parser();
 let element = dom.get_element_by_id("text")
   .expect("Failed to find element")
@@ -42,7 +42,7 @@ assert_eq!(element.inner_text(parser), "Hello");
   <summary>Finding a tag using the query selector API</summary>
 
 ```rust
-let dom = tl::parse(r#"<div><img src="cool-image.png" /></div>"#, tl::ParserOptions::default()).unwrap();
+let dom = tl_yargl::parse(r#"<div><img src="cool-image.png" /></div>"#, tl_yargl::ParserOptions::default()).unwrap();
 let img = dom.query_selector("img[src]").unwrap().next();
     
 assert!(img.is_some());
@@ -53,7 +53,7 @@ assert!(img.is_some());
   <summary>Iterating over the subnodes of an HTML document</summary>
 
 ```rust
-let dom = tl::parse(r#"<div><img src="cool-image.png" /></div>"#, tl::ParserOptions::default()).unwrap();
+let dom = tl_yargl::parse(r#"<div><img src="cool-image.png" /></div>"#, tl_yargl::ParserOptions::default()).unwrap();
 let img = dom.nodes()
   .iter()
   .find(|node| {
@@ -70,7 +70,7 @@ assert!(img.is_some());
 > In a real world scenario, you would want to handle errors properly instead of unwrapping.
 ```rust
 let input = r#"<div><a href="/about">About</a></div>"#;
-let mut dom = tl::parse(input, tl::ParserOptions::default())
+let mut dom = tl_yargl::parse(input, tl_yargl::ParserOptions::default())
   .expect("HTML string too long");
   
 let anchor = dom.query_selector("a[href]")

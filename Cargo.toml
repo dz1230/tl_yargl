@@ -1,14 +1,14 @@
 [package]
-name = "tl"
+name = "tl_yargl"
 version = "0.7.7"
 authors = ["y21"]
 edition = "2021"
 license = "MIT"
-description = "Fast HTML parser written in pure Rust"
-repository = "https://github.com/y21/tl"
-homepage = "https://github.com/y21/tl"
+description = "Fast HTML and CSS parser written in pure Rust"
+repository = "https://github.com/dz1230/tl_yargl"
+homepage = "https://github.com/dz1230/tl_yargl"
 readme = "README.md"
-documentation = "https://docs.rs/tl"
+documentation = "https://docs.rs/tl_yargl"
 keywords = ["html", "parser"]
 categories = ["parser-implementations", "parsing"]
 exclude = [".github/*"]
@@ -27,5 +27,5 @@ __INTERNALS_DO_NOT_USE = []
 criterion = { version = "0.3", features = ["html_reports"] }
 
 [[bench]]
-name = "tl"
+name = "tl_yargl"
 harness = false

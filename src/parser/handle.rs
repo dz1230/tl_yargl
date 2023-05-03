@@ -13,7 +13,7 @@ pub type InnerNodeHandle = u32;
 ///
 /// A common way to model self referential/recursive graphs is to have one "global" vector
 /// of nodes, and store indices into the vector instead of references.
-/// In the case of tl, the "global" HTML tag vector is stored in the [`Parser`] and [`NodeHandle`] represents the index.
+/// In the case of tl_yargl, the "global" HTML tag vector is stored in the [`Parser`] and [`NodeHandle`] represents the index.
 /// Because [`NodeHandle`] is only an index and completely detached from anything, you need to pass a parser to `NodeHandle::get()`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[repr(transparent)]

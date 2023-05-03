@@ -25,9 +25,9 @@ const INPUT: &str = r#"
 "#;
 
 pub fn criterion_benchmark(cr: &mut Criterion) {
-    cr.bench_function("tl", |b| {
+    cr.bench_function("tl_yargl", |b| {
         b.iter(|| {
-            let _ = tl::parse(black_box(INPUT), tl::ParserOptions::default());
+            let _ = tl_yargl::parse(black_box(INPUT), tl_yargl::ParserOptions::default());
         });
     });
 }

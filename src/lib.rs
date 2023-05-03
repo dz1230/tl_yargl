@@ -42,7 +42,7 @@ pub use vdom::{VDom, VDomGuard};
 ///
 /// # Example
 /// ```
-/// # use tl::*;
+/// # use tl_yargl::*;
 /// let dom = parse("<div>Hello, world!</div>", ParserOptions::default()).unwrap();
 /// assert_eq!(dom.query_selector("div").unwrap().count(), 1);
 /// ```
@@ -56,8 +56,8 @@ pub fn parse(input: &str, options: ParserOptions) -> Result<VDom<'_>, ParseError
 ///
 /// # Example
 /// ```
-/// # use tl::queryselector::selector::Selector;
-/// let selector = tl::parse_query_selector("div#test");
+/// # use tl_yargl::queryselector::selector::Selector;
+/// let selector = tl_yargl::parse_query_selector("div#test");
 ///
 /// match selector {
 ///     Some(Selector::And(left, right)) => {

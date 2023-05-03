@@ -136,7 +136,7 @@ impl<'a> VDom<'a> {
     /// # Example
     /// ```
     /// let html = r#"<div><p href="/about" id="find-me">Hello world</p></div>"#;
-    /// let mut dom = tl::parse(html, Default::default()).unwrap();
+    /// let mut dom = tl_yargl::parse(html, Default::default()).unwrap();
     ///
     /// let element = dom.get_element_by_id("find-me")
     ///     .unwrap()
@@ -164,7 +164,7 @@ impl<'a> VDom<'a> {
     ///
     /// # Example
     /// ```
-    /// let dom = tl::parse("<div><p class=\"foo\">bar</div>", tl::ParserOptions::default()).unwrap();
+    /// let dom = tl_yargl::parse("<div><p class=\"foo\">bar</div>", tl_yargl::ParserOptions::default()).unwrap();
     /// let handle = dom.query_selector("p.foo").and_then(|mut iter| iter.next()).unwrap();
     /// let node = handle.get(dom.parser()).unwrap();
     /// assert_eq!(node.inner_text(dom.parser()), "bar");

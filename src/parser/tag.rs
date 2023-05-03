@@ -95,7 +95,7 @@ impl<'a> Attributes<'a> {
     ///
     /// # Example
     /// ```
-    /// let mut dom = tl::parse("<span contenteditable=\"true\"></span>", Default::default()).unwrap();
+    /// let mut dom = tl_yargl::parse("<span contenteditable=\"true\"></span>", Default::default()).unwrap();
     /// let element = dom.nodes_mut()[0].as_tag_mut().unwrap();
     /// let attributes = element.attributes_mut();
     ///
@@ -119,7 +119,7 @@ impl<'a> Attributes<'a> {
     ///
     /// # Example
     /// ```
-    /// let mut dom = tl::parse("<span contenteditable=\"true\"></span>", Default::default()).unwrap();
+    /// let mut dom = tl_yargl::parse("<span contenteditable=\"true\"></span>", Default::default()).unwrap();
     /// let element = dom.nodes_mut()[0].as_tag_mut().unwrap();
     /// let attributes = element.attributes_mut();
     ///
@@ -364,7 +364,7 @@ impl<'a> HTMLTag<'a> {
     /// # Example
     /// ```
     /// let source = "<p><span>hello</span></p>";
-    /// let dom = tl::parse(source, Default::default()).unwrap();
+    /// let dom = tl_yargl::parse(source, Default::default()).unwrap();
     /// let parser = dom.parser();
     /// let span = dom.nodes().iter().filter_map(|n| n.as_tag()).find(|n| n.name() == "span").unwrap();
     /// let (start, end) = span.boundaries(parser);
@@ -423,7 +423,7 @@ impl<'a> HTMLTag<'a> {
     ///
     /// # Example
     /// ```
-    /// let dom = tl::parse(r#"
+    /// let dom = tl_yargl::parse(r#"
     ///     <div class="x">
     ///     <div class="y">
     ///       <div class="z">MATCH</div>
@@ -494,7 +494,7 @@ impl<'a, 'b> Children<'a, 'b> {
     ///
     /// # Example
     /// ```
-    /// let dom = tl::parse(r#"
+    /// let dom = tl_yargl::parse(r#"
     ///     <div id="a">
     ///         <div id="b">
     ///             <span>Hello</span>
@@ -546,7 +546,7 @@ impl<'a, 'b> Children<'a, 'b> {
     ///
     /// # Example
     /// ```
-    /// let dom = tl::parse(r#"
+    /// let dom = tl_yargl::parse(r#"
     ///     <div id="a"><div id="b"><span>Hello</span><span>World</span><span>!</span></div></div>
     /// "#, Default::default()).unwrap();
     ///

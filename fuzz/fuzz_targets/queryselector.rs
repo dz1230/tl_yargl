@@ -1,6 +1,6 @@
 #![no_main]
 use libfuzzer_sys::fuzz_target;
-extern crate tl;
+extern crate tl_yargl;
 
 const HTML: &str = r#"
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ const HTML: &str = r#"
 "#;
 
 fuzz_target!(|data: &str| {
-    let dom = tl::parse(HTML, tl::ParserOptions::default());
+    let dom = tl_yargl::parse(HTML, tl_yargl::ParserOptions::default());
     let iter = dom.query_selector(data);
     for _ in iter {
         // do nothing
