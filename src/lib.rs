@@ -7,6 +7,7 @@ mod bytes;
 pub mod errors;
 /// Inline data structures
 pub mod inline;
+mod css;
 mod parser;
 /// Query selector API
 pub mod queryselector;
